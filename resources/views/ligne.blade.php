@@ -39,10 +39,40 @@
                 vertical-align: middle;
                 line-height: 35px;
             }
+            ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            }
+
+            li {
+                padding-left: 1em; 
+                text-indent: -.7em;
+            }
+
+            li::before {
+                content: "o ";
+                color: grey;
+                font-weight: 800;
+            }
+            li.red::before {
+                content: "x ";
+                color: red;
+            }
         </style>
     </head>
     <body>
-        <h1>{{ $id }}</h1>
-        <?php dump($line); ?>
+        <h1>{{ $route->route_short_name }} - {{ $route->route_long_name }}</h1>
+        <ul>
+        @foreach($stops as $stop)
+             @if(isset($stop->here))
+            <li class="red">
+            @else
+            <li>
+            @endif
+            {{ $stop->stop_name }}
+            </li>
+        @endforeach
+        </ul>
     </body>
 </html>

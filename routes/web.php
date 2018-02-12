@@ -14,6 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('lines','Transport@lines')->name('lines');
 
-Route::get('line/{id}','Transport@line')->name('line');
+Route::get('lignes','Transport@lignes')->name('lignes');
+
+Route::get('ligne/{id}/direction/{direction}','Transport@ligne')->name('ligne');

@@ -16,7 +16,6 @@
                 margin: 0;
             }
             #lines {
-                text-decoration: none;
                 list-style: none;
                 margin: 0;
                 padding: 0;
@@ -42,17 +41,19 @@
     </head>
     <body>
         <ul id="lines">
-            @foreach ($lines as $line)
+            @foreach ($lignes as $ligne)
+            @foreach ($ligne->route_directions as $slug => $direction)
             <li>
-                <a href="{{ route('line',['id'=>$line->route_short_name]) }}">
-                    <span class="numero" style="background-color: {{ $line->route_color }}; color: {{ $line->route_text_color }}">
-                        {{ $line->route_short_name }} 
+                <a href="{{ route('ligne',['id'=>$ligne->route_short_name,'direction'=>$slug ]) }}">
+                    <span class="numero" style="background-color: {{ $ligne->route_color }}; color: {{ $ligne->route_text_color }}">
+                        {{ $ligne->route_short_name }} 
                     </span>
                     <span class="titre">
-                        {{ $line->route_long_name }} 
+                        {{ $direction }} 
                     </span>
                 </a>
             </li>
+            @endforeach
             @endforeach
         </ul>
     </body>

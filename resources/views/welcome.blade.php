@@ -61,11 +61,11 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Besti
+                    stib_r
                 </div>
 
                 <div class="links">
-                    <a href="{{ route('lines') }}">Lignes</a>
+                    <a href="{{ route('lignes') }}">Lignes</a>
                 </div>
             </div>
         </div>
